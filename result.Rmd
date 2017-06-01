@@ -1,0 +1,57 @@
+---
+title: ''
+output: html_document
+---
+
+```{r}
+#---------------------- RESULTS ----------------------#
+
+#KNN Algorithm results for different fraud percent 
+mat <- matrix(c(0.6262,0.5959,0.6527,0.6000,0.6240,0.6311,0.5894,0.6687,0.6159,0.6300,0.6564,0.6222,0.6879,0.6481,0.6560,0.6862,0.6349,0.7339,0.6893,0.6870),ncol=5,byrow = TRUE)
+colnames(mat) <- c(" Accuracy"," Sensitivity"," Specificity"," Precision","  AUC")
+rownames(mat) <- c(" 25% Fraud"," 50% Fraud"," 75% Fraud","100% Fraud")
+res <- as.table(mat)
+res
+
+dat <- matrix(res,ncol=4) # make data
+matplot(dat, type = c("o"),pch=1,col = 1:4,xlab = "Columns", ylab = "Result", 
+        main = "KNN") #plot
+legend("bottomright", legend = 1:4, col=1:4, pch=1)
+
+#SVM Algorithm results for different fraud percent 
+mat <- matrix(c(0.9617,0.9467,0.9755,0.9726,0.9610,0.9686,0.9700,0.9674,0.9636,0.9690,0.9658,0.9816,0.9523,0.9467,0.9670,0.9612,0.9713,0.9522,0.9474,0.9620),ncol=5,byrow = TRUE)
+colnames(mat) <- c(" Accuracy"," Sensitivity"," Specificity"," Precision","  AUC")
+rownames(mat) <- c(" 25% Fraud"," 50% Fraud"," 75% Fraud","100% Fraud")
+res <- as.table(mat)
+res
+
+dat <- matrix(res,ncol=4) # make data
+matplot(dat, type = c("o"),pch=1,col = 1:4,xlab = "Columns", ylab = "Result", 
+        main = "Support Vector Machine") #plot
+legend("bottomright", legend = 1:4, col=1:4, pch=1)
+
+
+#Random Forest Algorithm results for different fraud percent
+mat <-matrix(c(0.9585,0.9452,0.9701,0.9650,0.9590,0.9827,0.9702,0.9940,0.9932,0.9830,0.9755,0.9511,0.9979,0.9977,0.9770,0.9715,0.9498,0.9924,0.9914,0.9730),ncol=5,byrow = TRUE)
+colnames(mat) <- c(" Accuracy"," Sensitivity"," Specificity"," Precision","  AUC")
+rownames(mat) <- c(" 25% Fraud"," 50% Fraud"," 75% Fraud","100% Fraud")
+res <- as.table(mat)
+res
+
+dat <- matrix(res,ncol=4) # make data
+matplot(dat, type = c("o"),pch=1,col = 1:4,xlab = "Columns", ylab = "Result", 
+        main = "Random Forest") #plot
+legend("bottomright", legend = 1:4, col=1:4, pch=1)
+
+#Logistic Regression Algorithm results for different fraud percent
+mat <-matrix(c(0.9521,0.9810,0.9226,0.9281,0.9520,0.9686,0.9539,0.9862,0.9881,0.9700,0.9370,0.9180,0.9600,0.9651,0.9390,0.9509,0.9315,0.9740,0.9771,0.9530),ncol=5,byrow = TRUE)
+colnames(mat) <- c(" Accuracy"," Sensitivity"," Specificity"," Precision","  AUC")
+rownames(mat) <- c(" 25% Fraud"," 50% Fraud"," 75% Fraud","100% Fraud")
+res <- as.table(mat)
+res
+
+dat <- matrix(res,ncol=4) # make data
+matplot(dat, type = c("o"),pch=1,col = 1:4,xlab = "Columns", ylab = "Result", 
+        main = "Logistic Regration") #plot
+legend("bottomright", legend = 1:4, col=1:4, pch=1)
+```
